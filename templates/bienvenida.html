@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Performance - Empresa de Transportes, Mecánica y Servicios Integrales. Calidad, compromiso y excelencia en cada servicio.">
+  <title>Performance | Transportes, Mecánica y Servicios</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="#inicio" class="navbar__logo">
+        <span>Performance</span>
+      </a>
+
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ========== HERO / BIENVENIDA ========== -->
+  <section class="hero" id="inicio" style="background-image: linear-gradient(rgba(249, 250, 251, 0.88), rgba(249, 250, 251, 0.88)), url('{{ url_for('static', filename='img/performance-logo.jpg') }}');">
+    <div class="hero__content">
+      <h1 class="hero__title">Bienvenido a <span>Performance</span></h1>
+      <p class="hero__subtitle">
+        Empresa líder en transportes, mecánica automotriz y servicios integrales.
+        Comprometidos con la calidad, puntualidad y excelencia en cada proyecto.
+      </p>
+      <a href="#servicios" class="hero__cta">Conoce Nuestros Servicios</a>
+    </div>
+  </section>
+
+  <!-- ========== SERVICIOS ========== -->
+  <section class="section servicios" id="servicios">
+    <h2 class="section__title">Nuestros <span>Servicios</span></h2>
+    <p class="section__subtitle">
+      Ofrecemos soluciones confiables y profesionales adaptadas a tus necesidades.
+    </p>
+
+    <div class="servicios__grid">
+      <!-- Transporte -->
+      <div class="servicio-card">
+        <div class="servicio-card__icon">🚛</div>
+        <h3 class="servicio-card__title">Transporte de Carga</h3>
+        <p class="servicio-card__text">
+          Servicio de transporte seguro y puntual para todo tipo de mercancías.
+          Cobertura regional y nacional con flota moderna y confiable.
+        </p>
+      </div>
+
+      <!-- Mecánica -->
+      <div class="servicio-card">
+        <div class="servicio-card__icon">🔧</div>
+        <h3 class="servicio-card__title">Mecánica Automotriz</h3>
+        <p class="servicio-card__text">
+          Mantenimiento preventivo y correctivo de vehículos. Diagnóstico computarizado,
+          reparación de motores, suspensión y más.
+        </p>
+      </div>
+
+      <!-- Logística -->
+      <div class="servicio-card">
+        <div class="servicio-card__icon">📦</div>
+        <h3 class="servicio-card__title">Logística Integral</h3>
+        <p class="servicio-card__text">
+          Gestión completa de la cadena de suministro. Almacenamiento, distribución
+          y seguimiento en tiempo real de tus envíos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NOSOTROS ========== -->
+  <section class="section nosotros" id="nosotros">
+    <h2 class="section__title">Sobre <span>Nosotros</span></h2>
+    <p class="section__subtitle">
+      Más que una empresa, somos tu aliado estratégico.
+    </p>
+
+    <div class="nosotros__container">
+      <div class="nosotros__image">
+        <img src="{{ url_for('static', filename='img/performance-logo.png') }}" alt="Equipo Performance">
+      </div>
+      <div class="nosotros__text">
+        <h3>Experiencia y <span>Compromiso</span></h3>
+        <p>
+          En <strong>Performance</strong> nos dedicamos a brindar servicios de transporte,
+          mecánica automotriz y soluciones logísticas con los más altos estándares de calidad.
+        </p>
+        <p>
+          Nuestro equipo de profesionales trabaja día a día para garantizar la satisfacción
+          de nuestros clientes, cumpliendo con los tiempos y superando las expectativas.
+        </p>
+
+        <div class="nosotros__stats">
+          <div class="stat">
+            <div class="stat__number">+500</div>
+            <div class="stat__label">Clientes</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">+10</div>
+            <div class="stat__label">Años</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">+50</div>
+            <div class="stat__label">Vehículos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VALORES ========== -->
+  <section class="section valores">
+    <h2 class="section__title">Nuestros <span>Valores</span></h2>
+    <p class="section__subtitle">
+      Los principios que nos definen y guían cada día.
+    </p>
+
+    <div class="valores__grid">
+      <div class="valor-item">
+        <div class="valor-item__icon">⭐</div>
+        <h4 class="valor-item__title">Excelencia</h4>
+        <p class="valor-item__text">
+          Buscamos la perfección en cada servicio, superando los estándares del mercado.
+        </p>
+      </div>
+      <div class="valor-item">
+        <div class="valor-item__icon">🤝</div>
+        <h4 class="valor-item__title">Compromiso</h4>
+        <p class="valor-item__text">
+          Cumplimos nuestras promesas y nos responsabilizamos de cada proyecto.
+        </p>
+      </div>
+      <div class="valor-item">
+        <div class="valor-item__icon">🛡️</div>
+        <h4 class="valor-item__title">Seguridad</h4>
+        <p class="valor-item__text">
+          Priorizamos la seguridad de tu carga, tus vehículos y nuestro equipo.
+        </p>
+      </div>
+      <div class="valor-item">
+        <div class="valor-item__icon">⏱️</div>
+        <h4 class="valor-item__title">Puntualidad</h4>
+        <p class="valor-item__text">
+          Respetamos los tiempos porque sabemos el valor de cada minuto.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="contacto">
+    <div class="footer__container">
+      <div class="footer__brand">
+        <img src="{{ url_for('static', filename='img/performance-logo.png') }}" alt="Performance Logo">
+        <p>
+          Empresa de transportes, mecánica automotriz y servicios integrales.
+          Tu mejor aliado para soluciones profesionales.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Navegación</h4>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <p>📍 Dirección de la empresa</p>
+        <p>📞 +XX XXX XXX XXXX</p>
+        <p>✉️ contacto@performance.com</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 <span>Performance</span>. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPT (menú móvil) ========== -->
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

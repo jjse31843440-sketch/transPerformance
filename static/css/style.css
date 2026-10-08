@@ -1,0 +1,614 @@
+/* ============================================
+   PERFORMANCE — Diseño Minimalista
+   Colores: Blanco, Gris (principal)
+   Acentos sutiles: Azul y Amarillo
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ---------- Variables ---------- */
+:root {
+  /* Tonos principales: Blanco y Grises */
+  --blanco:         #FFFFFF;
+  --bg-claro:       #F9FAFB;
+  --bg-gris:        #F3F4F6;
+  --borde-gris:     #E5E7EB;
+  --texto-oscuro:   #111827;
+  --texto-normal:   #374151;
+  --texto-suave:    #6B7280;
+
+  /* Acentos (se asoman sin llevarse la atención) */
+  --azul-acento:    #1E3A8A; /* Azul profundo y sobrio */
+  --amarillo-acento:#F5A623; /* Amarillo clásico */
+
+  /* Sombras sutiles */
+  --sombra-sm:      0 1px 2px rgba(0, 0, 0, 0.05);
+  --sombra-md:      0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --sombra-lg:      0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--texto-normal);
+  background-color: var(--blanco);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul { list-style: none; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================
+   HEADER / NAVBAR
+   ========================================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--borde-gris);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 80px;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar__logo img {
+  height: 40px;
+  width: auto;
+}
+
+.navbar__logo span {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--texto-oscuro);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.navbar__links a {
+  color: var(--texto-normal);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+/* Acento sutil al pasar el mouse */
+.navbar__links a:hover {
+  color: var(--azul-acento);
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--amarillo-acento);
+  transition: width 0.3s ease;
+}
+
+.navbar__links a:hover::after {
+  width: 100%;
+}
+
+/* Hamburguesa (móvil) */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 6px;
+}
+
+.navbar__toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--texto-oscuro);
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* =========================================
+   HERO — Presentación principal
+   ========================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 4rem;
+  background-color: var(--bg-claro);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* LOGO GRANDE EN MEDIO */
+.hero__logo {
+  width: 450px; /* Tamaño grande */
+  max-width: 85%;
+  margin: 0 auto 3rem; /* Espaciado generoso para que no estorbe */
+  opacity: 0.95;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--texto-oscuro);
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+/* Acentos en el texto (sin ser agresivos) */
+.hero__title span {
+  color: var(--azul-acento);
+  position: relative;
+}
+
+.hero__subtitle {
+  font-size: 1.15rem;
+  color: var(--texto-suave);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  font-weight: 300;
+}
+
+.hero__cta {
+  display: inline-block;
+  background-color: var(--blanco);
+  color: var(--texto-oscuro);
+  padding: 0.85rem 2.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid var(--borde-gris);
+  border-radius: 4px;
+  box-shadow: var(--sombra-sm);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover del botón con toque de acento amarillo */
+.hero__cta:hover {
+  border-color: var(--amarillo-acento);
+  color: var(--azul-acento);
+  box-shadow: var(--sombra-md);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   SECCIONES — Estilos comunes
+   ========================================= */
+.section {
+  padding: 6rem 2rem;
+}
+
+.section__title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.section__title span {
+  color: var(--texto-suave); /* En minimalismo el span no es tan llamativo */
+}
+
+/* Pequeña línea de acento sutil */
+.section__title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--amarillo-acento);
+  margin: 1rem auto 0;
+  opacity: 0.7;
+}
+
+.section__subtitle {
+  text-align: center;
+  color: var(--texto-suave);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto 3.5rem;
+  font-weight: 300;
+}
+
+/* =========================================
+   SERVICIOS
+   ========================================= */
+.servicios {
+  background-color: var(--blanco);
+}
+
+.servicios__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.servicio-card {
+  background-color: var(--bg-claro);
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid var(--borde-gris);
+  transition: all 0.3s ease;
+}
+
+.servicio-card:hover {
+  background-color: var(--blanco);
+  box-shadow: var(--sombra-md);
+  border-color: var(--azul-acento); /* Acento azul al interactuar */
+  transform: translateY(-4px);
+}
+
+.servicio-card__icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.servicio-card:hover .servicio-card__icon {
+  transform: scale(1.1);
+}
+
+.servicio-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  margin-bottom: 1rem;
+}
+
+.servicio-card__text {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* =========================================
+   NOSOTROS (Equipo Performance)
+   ========================================= */
+.nosotros {
+  background-color: var(--bg-claro);
+}
+
+.nosotros__container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilo arreglado para la imagen: Si no carga o está rota, se verá limpia y sutil */
+.nosotros__image {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-gris);
+  border-radius: 8px;
+  min-height: 350px;
+  border: 1px solid var(--borde-gris);
+  overflow: hidden;
+}
+
+.nosotros__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0.95;
+}
+
+.nosotros__text {
+  flex: 1;
+}
+
+.nosotros__text h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  margin-bottom: 1.25rem;
+}
+
+.nosotros__text p {
+  color: var(--texto-normal);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+}
+
+.nosotros__stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+
+.stat {
+  text-align: left;
+  border-left: 2px solid var(--azul-acento);
+  padding-left: 1rem;
+}
+
+.stat__number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--texto-oscuro);
+  line-height: 1;
+}
+
+.stat__label {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+}
+
+/* =========================================
+   VALORES
+   ========================================= */
+.valores {
+  background-color: var(--blanco);
+}
+
+.valores__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.valor-item {
+  text-align: center;
+  padding: 2rem;
+}
+
+.valor-item__icon {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  opacity: 0.7;
+}
+
+.valor-item__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--texto-oscuro);
+}
+
+.valor-item__text {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+  background-color: var(--bg-gris);
+  color: var(--texto-normal);
+  padding: 4rem 2rem 2rem;
+  border-top: 1px solid var(--borde-gris);
+}
+
+.footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.footer__brand {
+  max-width: 300px;
+}
+
+.footer__brand img {
+  height: 35px;
+  margin-bottom: 1.25rem;
+  opacity: 0.8;
+  filter: grayscale(100%); /* Minimalista y limpio */
+  transition: filter 0.3s ease;
+}
+
+.footer__brand:hover img {
+  filter: grayscale(0%);
+}
+
+.footer__brand p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  line-height: 1.6;
+}
+
+.footer__col h4 {
+  color: var(--texto-oscuro);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.footer__col a {
+  display: block;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer__col a:hover {
+  color: var(--azul-acento);
+}
+
+.footer__col p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  margin-bottom: 0.75rem;
+}
+
+.footer__bottom {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--borde-gris);
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--blanco);
+    padding: 1.5rem 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--borde-gris);
+    box-shadow: var(--sombra-md);
+  }
+
+  .navbar__links.active {
+    display: flex;
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .hero__logo {
+    width: 300px;
+  }
+
+  .hero__title {
+    font-size: 2.25rem;
+  }
+
+  .nosotros__container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nosotros__stats {
+    justify-content: center;
+  }
+
+  .stat {
+    border-left: none;
+    border-bottom: 2px solid var(--azul-acento);
+    padding-left: 0;
+    padding-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .footer__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .footer__brand {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__logo {
+    width: 250px;
+  }
+  
+  .hero__title {
+    font-size: 1.75rem;
+  }
+
+  .section__title {
+    font-size: 1.5rem;
+  }
+}
